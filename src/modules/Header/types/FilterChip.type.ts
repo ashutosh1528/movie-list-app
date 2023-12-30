@@ -1,5 +1,4 @@
 export type FilterChipType = {
   id: number;
   name: string;
-  isSelected: boolean;
 }
