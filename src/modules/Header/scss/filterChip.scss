@@ -1,0 +1,21 @@
+.filterChip {
+  font-family: var(--font-filter);
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  width: 100%;
+  background-color: var(--filter-chip-bg);
+  margin-left: 10px;
+  white-space: nowrap;
+  color: white;
+  
+  // No margin for the first chip
+  &:first-child {
+    margin-left: 0px;
+  }
+  &--selected {
+    @extend .filterChip;
+    background-color: var(--filter-chip-selected-bg);
+    font-weight: 600;
+  }
+}

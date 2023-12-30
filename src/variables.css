@@ -1,0 +1,9 @@
+:root {
+    --font-title: 'Amaranth';
+    --font-filter: 'Saira';
+    --font-text: 'Archivo';
+    --main-bg: #121212;
+    --header-bg: #242424;
+    --filter-chip-bg: #484848;
+    --filter-chip-selected-bg: #F0283C;
+}

@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from 'modules/Header';
+import './app.scss';
 
 const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="mainContianer">
+      <Header />
+      {/* <div>
+        {Array(10)
+          .fill(0)
+          .map((i) => (
+            <div
+              style={{
+                height: 100,
+                padding: 20,
+                margin: 10,
+                backgroundColor: 'red',
+              }}
+            >
+              Box
+            </div>
+          ))}
+      </div> */}
+      {/* <div
+        style={{ height: 100, padding: 20, margin: 10, backgroundColor: 'red' }}
+      >
+        Box
+      </div> */}
     </div>
   );
 };
