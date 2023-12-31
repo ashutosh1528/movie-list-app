@@ -5,6 +5,7 @@ type GetYearWiseMoiveListPayloadType = {
   primary_release_year: number;
   page: number;
   'vote_count.gte': number;
+  sort_by: string;
 };
 
 type GetYearWiseMoiveListResponseType = {
@@ -21,6 +22,7 @@ const useGetYearWiseMovieList = ({ year, isVisible }: { year: string, isVisible:
       primary_release_year: parseInt(year, 10),
       page: 1,
       "vote_count.gte": 100,
+      sort_by: 'popularity.desc',
     },
     queryConfig: {
       staleTime: Infinity,

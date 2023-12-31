@@ -8,6 +8,10 @@
   margin-left: 10px;
   white-space: nowrap;
   color: white;
+
+  &:hover {
+    cursor: pointer;
+  }
   
   // No margin for the first chip
   &:first-child {
