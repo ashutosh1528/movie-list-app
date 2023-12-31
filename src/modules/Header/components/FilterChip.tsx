@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '@redux/store';
 import { setSelectedFilter } from '@redux/filter.slice';
-import { FilterChipType } from '../types/FilterChip.type';
+import GenreType from '../types/Genre.type';
 import '../scss/filterChip.scss';
 
-const FilterChip = ({ name, id }: FilterChipType) => {
+const FilterChip = ({ name, id }: GenreType) => {
   const dispatch = useDispatch();
   const selectedFilterId = useSelector((state: RootState) => state.filter.selectedFilter);
 
