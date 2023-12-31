@@ -9,19 +9,21 @@ import MovieType from '../types/Movie.type';
 
 const YearList = ({ year }: { year: string }) => {
   const [visible, refx] = useVisibility<HTMLDivElement>(100, year === '2012');
-  const filterSelected = useSelector((state: RootState) => state?.filter?.selectedFilter);
+  const selectedFilters = useSelector((state: RootState) => state?.filter?.selectedFilters);
   const { isLoading, isSuccess, isFetching, data: moviesList } = useGetYearWiseMovieList({ year, isVisible: true });
   const [movieToShow, setMoviesToShow] = useState<MovieType[]>([]);
 
   useEffect(() => {
     if (isSuccess && (moviesList?.results || [])?.length > 0) {
-      if (filterSelected === -1) {
+      if (selectedFilters.length === 1 && selectedFilters[0] === -1) {
         setMoviesToShow(moviesList?.results || []);
       } else {
-        setMoviesToShow((moviesList?.results || [])?.filter((movie) => movie.genre_ids.includes(filterSelected)));
+        setMoviesToShow(
+          (moviesList?.results || [])?.filter((movie) => movie.genre_ids.filter((filterId) => selectedFilters.includes(filterId)).length > 0)
+        );
       }
     }
-  }, [isFetching, moviesList, filterSelected, isSuccess]);
+  }, [isFetching, moviesList, selectedFilters, isSuccess]);
 
   const getUI = useCallback(() => {
     if (movieToShow?.length > 0)

@@ -3,18 +3,26 @@ import { RootState } from '@redux/store';
 import { setSelectedFilter } from '@redux/filter.slice';
 import GenreType from '../types/Genre.type';
 import '../scss/filterChip.scss';
+import { useMemo } from 'react';
 
 const FilterChip = ({ name, id }: GenreType) => {
   const dispatch = useDispatch();
-  const selectedFilterId = useSelector((state: RootState) => state.filter.selectedFilter);
+  const selectedFilters = useSelector((state: RootState) => state.filter.selectedFilters);
+  const isFilterSelected = useMemo(() => {
+    return selectedFilters.includes(id);
+  }, [id, selectedFilters]);
 
   const handleChipClick = () => {
-    dispatch(setSelectedFilter(id));
+    if (isFilterSelected) {
+      dispatch(setSelectedFilter({ id, isAlreadySelected: true }));
+    } else {
+      dispatch(setSelectedFilter({ id, isAlreadySelected: false }));
+    }
   };
 
   if (name)
     return (
-      <button className={`filterChip${selectedFilterId === id ? '--selected' : ''}`} onClick={handleChipClick}>
+      <button className={`filterChip${isFilterSelected ? '--selected' : ''}`} onClick={handleChipClick}>
         {name}
       </button>
     );

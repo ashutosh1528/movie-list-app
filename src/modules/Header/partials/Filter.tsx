@@ -1,6 +1,6 @@
+import useGetGenreList from 'services/useGetGenreList';
 import FilterChip from '../components/FilterChip';
 import '../scss/filter.scss';
-import useGetGenreList from 'services/useGetGenreList';
 
 const Filter = () => {
   const { isLoading, isSuccess, data: genreList } = useGetGenreList();
