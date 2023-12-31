@@ -1,0 +1,17 @@
+.movieCard {
+  &__container {
+    height: 222px;
+    width: 158px;
+    position: relative;
+  }
+  &__rating {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 12px;
+    mix-blend-mode: difference;
+    font-weight: 600;
+    padding-left: 4px;
+    padding-bottom: 4px;
+  }
+}
