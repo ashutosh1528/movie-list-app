@@ -21,7 +21,9 @@ export const counterSlice = createSlice({
         const currentSelections = [...state.selectedFilters];
         const isCurrentOnlyAll = currentSelections.length === 1 && currentSelections[0] === -1;
         if (isAlreadySelected) {
-          state.selectedFilters = currentSelections.filter((filterId) => filterId !== id);
+          const newFilters = currentSelections.filter((filterId) => filterId !== id);
+          if (newFilters.length === 0) state.selectedFilters = [-1];
+          else state.selectedFilters = newFilters;
         } else if (isCurrentOnlyAll) {
           state.selectedFilters = [id];
         } else {

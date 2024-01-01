@@ -2,7 +2,7 @@ import YearList from './partials/YearList';
 import './scss/index.scss';
 
 const MovieList = () => {
-  const arr = Array.from({ length: 12 }, (_, i) => i + 2012);
+  const arr = Array.from({ length: 116 }, (_, i) => i + 1908);
   return (
     <div className="movieList__container">
       {arr.map((year) => (
