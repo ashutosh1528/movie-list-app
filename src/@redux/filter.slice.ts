@@ -1,16 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit';
 import type { PayloadAction } from '@reduxjs/toolkit';
 
-export type CounterState = {
+export type FliterState = {
   selectedFilters: number[];
 };
 
-const initialState: CounterState = {
+const initialState: FliterState = {
   selectedFilters: [-1],
 };
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const filterSlice = createSlice({
+  name: 'filter',
   initialState,
   reducers: {
     setSelectedFilter: (state, action: PayloadAction<{ id: number; isAlreadySelected: boolean }>) => {
@@ -34,5 +34,5 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { setSelectedFilter } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { setSelectedFilter } = filterSlice.actions;
+export default filterSlice.reducer;
