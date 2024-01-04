@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import filterSlice from './filter.slice';
+import movieSlice from './movie.slice';
 
 export const store = configureStore({
   reducer: {
-    filter: filterSlice
+    filter: filterSlice,
+    movie: movieSlice,
   },
 })
 

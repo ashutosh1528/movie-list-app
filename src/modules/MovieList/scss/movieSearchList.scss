@@ -1,0 +1,14 @@
+.movieSearchList {
+  &__container {
+    &__movies {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, 158px);
+      grid-gap: 16px;
+      align-content: center;
+      grid-auto-rows: 250px;
+      justify-content: center;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+}
