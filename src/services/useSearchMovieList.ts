@@ -16,8 +16,7 @@ const useSearchMovieList = ({ query }: { query: string }) => {
     enabled: !!query,
     refetchOnMount: false,
     refetchOnWindowFocus: false,
-    queryFn: async ({ pageParam, direction }) => {
-      console.log(direction, pageParam);
+    queryFn: async ({ pageParam }) => {
       const data = await axios.get(
         `https://api.themoviedb.org/3/search/movie?page=${pageParam?.currentPage + 1}&api_key=2dca580c2a14b55200e784d157207b4d&query=${query}`
       );

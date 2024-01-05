@@ -6,6 +6,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '@redux/store';
 import MovieType from '../types/Movie.type';
+import { filterMoviesByFilter } from 'utils/filterMoviesByFilters';
 
 const YearList = ({ year }: { year: string }) => {
   const currentElement = useRef<HTMLDivElement>(null);
@@ -16,13 +17,7 @@ const YearList = ({ year }: { year: string }) => {
 
   useEffect(() => {
     if (isSuccess && (moviesList?.results || [])?.length > 0) {
-      if (selectedFilters.length === 1 && selectedFilters[0] === -1) {
-        setMoviesToShow(moviesList?.results || []);
-      } else {
-        setMoviesToShow(
-          (moviesList?.results || [])?.filter((movie) => movie.genre_ids.filter((filterId) => selectedFilters.includes(filterId)).length > 0)
-        );
-      }
+      setMoviesToShow(filterMoviesByFilter(moviesList?.results || [], selectedFilters));
     }
   }, [isFetching, moviesList, selectedFilters, isSuccess]);
 

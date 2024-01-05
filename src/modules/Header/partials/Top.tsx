@@ -35,6 +35,7 @@ const Top = () => {
     e.stopPropagation();
     setIsInputVisible(false);
     setSearchInputValue('');
+    dispatch(handleSearchQuery(''));
   };
 
   const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement>) => {
