@@ -23,21 +23,9 @@ Please make sure to use `yarn` and not npm
 5. axios
 6. react-window
 
-## Requirements - 
-Covered - 
-1. Render movie list
-2. Provide one or multiple filter(s) functionality 
-3. Provide functionality to search movie basis search query
-4. Smooth scroll
-5. No use of UI component libraries
-6. Strictly typed
-
-Not covered - 
-1. Default year 2012. I have started the load from 1908.
-
 
 <br />
-Hope you like my project. Hoping to hear back from you soon !
+Hope you like my project !
 
 ## Developed by -<br/>
 Ashutosh Agrawal<br/>
